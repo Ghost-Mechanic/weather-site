@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <div class="container">
+        <div class="projects">
+            <div class = "project" id="add-project">
+                + Project
+            </div>
+        </div>
+        <div class="todos">
+        </div>
+    </div>
+    <dialog class="new-project-dialog">
+        <form class="form" action="" method="dialog">
+            <label for="project-title">
+                Title:
+            </label>
+            <input type="text" id="project-title" name="project-title">
+            <label for="project-description">
+                Description:
+            </label>
+            <textarea id="project-description" name="project-description" rows="4" cols="50"></textarea>
+            <label for="project-due-date">
+                Due Date:
+            </label>
+            <input type="date" id="project-due-date" name="project-due-date">
+            <div class="buttons">
+                <button id="close-button">
+                    Close
+                </button>
+                <button type="submit" id="submit-project">
+                    Add Project
+                </button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="new-todo-dialog">
+        <form class="form" action="" method="dialog">
+            <label for="todo-title">
+                Title:
+            </label>
+            <input type="text" id="todo-title" name="todo-title">
+            <label for="todo-description">
+                Description:
+            </label>
+            <textarea id="todo-description" name="todo-description" rows="4" cols="50"></textarea>
+            <label for="todo-due-date">
+                Due Date:
+            </label>
+            <input type="date" id="todo-due-date" name="todo-due-date">
+            <div class="buttons">
+                <button id="close-button">
+                    Close
+                </button>
+                <button type="submit" id="submit-todo">
+                    Add Todo
+                </button>
+            </div>
+        </form>
+    </dialog>
+</body>
+</html>
