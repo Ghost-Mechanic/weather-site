@@ -21,6 +21,7 @@ function processWeatherDataF(weatherData) {
         return null;
     }
 
+    // create new properties with data from API
     const location = weatherData.location.name;
     const currTemp = weatherData.current.temp_f;
     const currTempFeelsLike = weatherData.current.feelslike_f;
@@ -31,6 +32,7 @@ function processWeatherDataF(weatherData) {
         condition: day.day.condition.text
     }));
 
+    // return object with properties for needed data
     return {
         location,
         currTemp,
@@ -47,6 +49,7 @@ function processWeatherDataC(weatherData) {
         return null;
     }
 
+    // create new properties with data from API
     const location = weatherData.location.name;
     const currTemp = weatherData.current.temp_c;
     const currTempFeelsLike = weatherData.current.feelslike_c;
@@ -57,6 +60,7 @@ function processWeatherDataC(weatherData) {
         condition: day.day.condition.text
     }));
 
+    // return object with properties for needed data
     return {
         location,
         currTemp,

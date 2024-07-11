@@ -7,8 +7,16 @@
 </head>
 <body>
     <form action="">
-        <label for="location">Enter a location:</label>
-        <input class="location" type="text" name="location">
+        <div class="form-item">
+            <label for="location">Enter a location:</label>
+            <input id="location" type="text" name="location">
+        </div>
+        <div class="form-item">
+            <input type="checkbox" id="fahrenheit" name="fahrenheit" checked>
+            <label for="fahrenheit">Fahrenheit</label>
+            <input type="checkbox" id="celsius" name="celsius">
+            <label for="celsius">Celsius</label>
+        </div>
         <input class="submit-button" type="submit" name="submit-button"></input>
     </form>
 </body>
