@@ -1,63 +1,33 @@
-import { Project } from './todo';
-import { addProjectToDOM, displayTodos } from './dom';
-import { createProject, createTodo } from './buttons';
-import './style.css';
-import { loadFromLocalStorage } from './storage';
+import { getWeatherData, processWeatherDataF } from "./data";
 
-// initialize webpage with a default project for any generic task
-let defaultProject = new Project("Default Project", "This is the default project for any generic tasks", "No due date");
-
-// load in array of projects from local storage
-let projects = loadFromLocalStorage();
-
-// if it is the first time using the webpage, the projects array is
-// just the default project, but if the default project has saved content,
-// set the default project to the first index of the local storage projects
-if (projects.length == 0) {
-    projects = [defaultProject];
-}
-else {
-    defaultProject = projects[0];
+// this function logs the weather info to the console after being inputted
+function logWeatherInfo(locationObjectData) {
+    console.log(`Location: ${locationObjectData.location}`);
+    console.log(`Current temperature: ${locationObjectData.currTemp}`);
+    console.log(`Feels like: ${locationObjectData.currTempFeelsLike}`);
+    console.log(`Condition: ${locationObjectData.currCondition}`);
+    locationObjectData.forecast.forEach((day) => {
+        console.log(`Forecast for: ${day.date}`);
+        console.log(`Temperature: ${day.temp}`);
+        console.log(`Condition: ${day.condition}`);
+    });
 }
 
-// create variable currProject to keep track of current project
-let currProject = { current: null };
-currProject.current = defaultProject;
+const submitButton = document.querySelector(".submit-button");
+const inputField = document.querySelector(".location");
 
-const defaultProjectDiv = document.querySelector(".projects .project");
-
-// load in each project from the local storage onto the DOM
-projects.forEach((project, index) => {
-    addProjectToDOM(project, currProject);
-    if (index == 0) {
-        displayTodos(defaultProject, defaultProjectDiv)
-    }
-});
-
-currProject.current = defaultProject;
-
-// add a listener to the new project div that will open up the form to make a new project
-const projectDialog = document.querySelector(".new-project-dialog");
-const newProjectBtn = document.querySelector("#add-project");
-newProjectBtn.addEventListener("click", () => {
-    projectDialog.showModal();
-});
-
-// add a listener to the new project button to submit the form to create a new project
-const newProjectSubmitBtn = document.querySelector("#submit-project");
-newProjectSubmitBtn.addEventListener("click", (event) => {
+// add an event listener to the submit button that logs
+// the weather info for the inputted location
+submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    createProject(currProject);
-    projectDialog.close();
-});
 
-// add a listener to the new todo button to submit the form to create a new project
-const todoDialog = document.querySelector(".new-todo-dialog");
-const newTodoSubmitBtn = document.querySelector("#submit-todo");
-newTodoSubmitBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    createTodo(currProject.current);
-    todoDialog.close();
-});
+    getWeatherData(inputField.value).then(weatherData => {
+        const processedData = processWeatherDataF(weatherData);
+        logWeatherInfo(processedData);
+    })
+    .catch(error => {
+        console.log(error);
+    });
 
-export { currProject, defaultProject, projects };
+    inputField.value = "";
+});
