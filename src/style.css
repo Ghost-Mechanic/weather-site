@@ -34,10 +34,12 @@ input[type=text]:focus {
 }
 
 .submit-button {
+    font-family: "Rubik", sans-serif;
     border: 1px solid black;
     border-radius: 16px;
     width: 100px;
     background-color: white;
+    box-shadow: 2px 2px 6px black;
 }
 
 /* style current weather info */
@@ -46,6 +48,10 @@ input[type=text]:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.temp {
+    color: blue;
 }
 
 /* style forecasts */
@@ -60,8 +66,10 @@ input[type=text]:focus {
 }
 
 .forecast {
+    background-color: rgb(245, 245, 245);
     border: 1px solid black;
     border-radius: 32px;
+    box-shadow: 4px 4px 10px black;
     padding: 40px;
     display: flex;
     flex-direction: column;

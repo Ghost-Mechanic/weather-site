@@ -34,8 +34,8 @@ function displayWeatherInfo(locationObjectData) {
     const currCondition = document.createElement("h3");
     const currConditionIcon = document.createElement("img");
     location.textContent = locationObjectData.location;
-    currTemp.textContent = `Current Temperature: ${locationObjectData.currTemp}\u00B0`;
-    currFeelsLike.textContent = `Feels Like: ${locationObjectData.currTempFeelsLike}\u00B0`;
+    currTemp.innerHTML = `Current Temperature: <span class="temp">${locationObjectData.currTemp}\u00B0</span`;
+    currFeelsLike.innerHTML = `Feels Like: <span class="temp">${locationObjectData.currTempFeelsLike}\u00B0</span>`;
     currCondition.textContent = locationObjectData.currCondition;
     currConditionIcon.src = locationObjectData.currConditionIcon;
 
@@ -69,7 +69,7 @@ function displayWeatherInfo(locationObjectData) {
         const forecastCondition = document.createElement("h3");
         const forecastConditionIcon = document.createElement("img");
         forecastDay.textContent = day.date.slice(5);
-        forecastTemp.textContent = `Day Average: ${day.temp}\u00B0`;
+        forecastTemp.innerHTML = `Day Average: <span class="temp">${day.temp}\u00B0</span>`;
         forecastCondition.textContent = day.condition;
         forecastConditionIcon.src = day.conditionIcon;
 
