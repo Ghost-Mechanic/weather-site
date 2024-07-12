@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body {
+    background-color: rgb(196, 253, 255);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Rubik", sans-serif;
+}
+
+/* style input form */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+input[type=text] {
+    border: dashed 1px black;
+    height: 12px;
+    padding: 4px;
+    border-radius: 16px;
+    font-family: "Rubik", sans-serif;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: solid 1px black;
+}
+
+.submit-button {
+    border: 1px solid black;
+    border-radius: 16px;
+    width: 100px;
+    background-color: white;
+}
+
+/* style current weather info */
+
+.current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* style forecasts */
+
+.forecast-title {
+    text-decoration: underline;
+}
+
+.forecasts {
+    display: flex;
+    gap: 100px;
+}
+
+.forecast {
+    border: 1px solid black;
+    border-radius: 32px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

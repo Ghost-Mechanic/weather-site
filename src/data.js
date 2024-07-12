@@ -26,10 +26,12 @@ function processWeatherDataF(weatherData) {
     const currTemp = weatherData.current.temp_f;
     const currTempFeelsLike = weatherData.current.feelslike_f;
     const currCondition = weatherData.current.condition.text;
+    const currConditionIcon = weatherData.current.condition.icon;
     const forecast = weatherData.forecast.forecastday.map((day) => ({
         date: day.date,
         temp: day.day.avgtemp_f,
-        condition: day.day.condition.text
+        condition: day.day.condition.text,
+        conditionIcon: day.day.condition.icon
     }));
 
     // return object with properties for needed data
@@ -38,6 +40,7 @@ function processWeatherDataF(weatherData) {
         currTemp,
         currTempFeelsLike,
         currCondition,
+        currConditionIcon,
         forecast
     };
 }
@@ -54,10 +57,13 @@ function processWeatherDataC(weatherData) {
     const currTemp = weatherData.current.temp_c;
     const currTempFeelsLike = weatherData.current.feelslike_c;
     const currCondition = weatherData.current.condition.text;
+    const currConditionIcon = weatherData.current.condition.icon;
+    console.log(weatherData.current.condition.icon);
     const forecast = weatherData.forecast.forecastday.map((day) => ({
         date: day.date,
         temp: day.day.avgtemp_c,
-        condition: day.day.condition.text
+        condition: day.day.condition.text,
+        conditionIcon: day.day.condition.icon
     }));
 
     // return object with properties for needed data
@@ -66,6 +72,7 @@ function processWeatherDataC(weatherData) {
         currTemp,
         currTempFeelsLike,
         currCondition,
+        currConditionIcon,
         forecast
     };
 }
